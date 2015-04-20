@@ -1,0 +1,161 @@
+ (routes 
+  (resolution mm 10000)
+  (parser
+  )
+  (parser
+  )
+  (structure_out
+   (layer BOTTOM (type signal)
+   )
+  )
+  (library_out
+  (padstack ViaDefault
+   (shape (circ BOTTOM 10160 0 0))
+  )
+  )
+  (network_out
+   (Net 3V3 
+   (rule
+   )
+   (wire (path BOTTOM 8000  42400 242400 77000 242400 77000 300000
+     440100 300000 440100 284720)
+    (connect (terminal smd XB1-1) (terminal smd C5-2))
+   )
+   (wire (path BOTTOM 8000  440100 284720 440100 267000 427000 267000
+     427000 231709 450655 231709)
+    (connect (terminal smd C5-2) (terminal smd IC1-16))
+   )
+   )
+   (Net GND 
+   (rule
+   )
+   (wire (path BOTTOM 8000  352000 329000 26000 329000 26000 62400
+     42400 62400)
+    (connect (terminal wire) (terminal smd XB1-10))
+   )
+   (wire (path BOTTOM 8000  470000 207000 470000 168209 331000 168209
+     331000 170000 302000 170000 302000 92378 320235 92378)
+    (connect (terminal wire) (terminal smd C4-1))
+   )
+   (wire (path BOTTOM 8000  465500 284720 465500 311000 352000 311000
+     352000 329000)
+    (connect (terminal smd C5-1) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  450655 206309 416000 206309 416000 285934
+     388033 285934)
+    (connect (terminal smd IC1-15) (terminal smd C3-1))
+   )
+   (wire (path BOTTOM 8000  465500 284720 465500 256000 470000 256000
+     470000 207000)
+    (connect (terminal smd C5-1) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  450655 206309 450655 207000 470000 207000)
+    (connect (terminal smd IC1-15) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  352000 329000 352000 354915 352376 354915)
+    (connect (terminal wire) (terminal smd JP1-2))
+   )
+   )
+   (Net N$1 
+   (rule
+   )
+   (wire (path BOTTOM 8000  450655 155509 394000 155509 394000 79309
+     374455 79309)
+    (connect (terminal smd IC1-13) (terminal smd IC1-7))
+   )
+   )
+   (Net N$2 
+   (rule
+   )
+   (wire (path BOTTOM 8000  374455 231709 332000 231709 332000 229654
+     317500 229654)
+    (connect (terminal smd IC1-1) (terminal smd C1-2))
+   )
+   )
+   (Net N$3 
+   (rule
+   )
+   (wire (path BOTTOM 8000  317500 204254 317500 180909 374455 180909)
+    (connect (terminal smd C1-1) (terminal smd IC1-3))
+   )
+   )
+   (Net N$4 
+   (rule
+   )
+   (wire (path BOTTOM 8000  316816 155878 316816 155509 374455 155509)
+    (connect (terminal smd C2-2) (terminal smd IC1-4))
+   )
+   )
+   (Net N$5 
+   (rule
+   )
+   (wire (path BOTTOM 8000  374455 130109 374455 130478 316816 130478)
+    (connect (terminal smd IC1-5) (terminal smd C2-1))
+   )
+   )
+   (Net N$6 
+   (rule
+   )
+   (wire (path BOTTOM 8000  362633 285934 362633 256000 405000 256000
+     405000 206309 374455 206309)
+    (connect (terminal smd C3-2) (terminal smd IC1-2))
+   )
+   )
+   (Net N$7 
+   (rule
+   )
+   (wire (path BOTTOM 8000  320235 66978 335000 66978 335000 104709
+     374455 104709)
+    (connect (terminal smd C4-2) (terminal smd IC1-6))
+   )
+   )
+   (Net N$8 
+   (rule
+   )
+   (wire (path BOTTOM 8000  450655 180909 420000 180909 420000 193609
+     355000 193609 355000 219000 394000 219000 394000 245000
+     291000 245000 291000 50000 335000 50000 335000 53909
+     374455 53909)
+    (connect (terminal smd IC1-14) (terminal smd IC1-8))
+   )
+   )
+   (Net N$9 
+   (rule
+   )
+   (wire (path BOTTOM 8000  450655 53909 427000 53909 427000 15000
+     15000 15000 15000 376214 376061 376214 376061 354915
+     377776 354915)
+    (connect (terminal smd IC1-9) (terminal smd JP1-3))
+   )
+   )
+   (Net N$10 
+   (rule
+   )
+   (wire (path BOTTOM 8000  450655 79309 481000 79309 481000 322000
+     403176 322000 403176 354915)
+    (connect (terminal smd IC1-10) (terminal smd JP1-4))
+   )
+   )
+   (Net N$11 
+   (rule
+   )
+   (wire (path BOTTOM 8000  450655 130109 470000 130109 470000 92000
+     416000 92000 416000 26000 170044 26000 170044 202400
+     42400 202400)
+    (connect (terminal smd IC1-12) (terminal smd XB1-3))
+   )
+   )
+   (Net N$12 
+   (rule
+   )
+   (wire (path BOTTOM 8000  42400 222400 225196 222400 225196 37000
+     405000 37000 405000 104709 450655 104709)
+    (connect (terminal smd XB1-2) (terminal smd IC1-11))
+   )
+   )
+   (Net VCC 
+   (rule
+   )
+   )
+  )
+ )

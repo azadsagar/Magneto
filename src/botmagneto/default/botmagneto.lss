@@ -1,0 +1,253 @@
+
+botmagneto.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000de  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .stab         000006cc  00000000  00000000  00000134  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  2 .stabstr      00000085  00000000  00000000  00000800  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_aranges 00000020  00000000  00000000  00000885  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_pubnames 00000056  00000000  00000000  000008a5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000249  00000000  00000000  000008fb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000017f  00000000  00000000  00000b44  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   000002a5  00000000  00000000  00000cc3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  00000060  00000000  00000000  00000f68  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    0000013e  00000000  00000000  00000fc8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000009a  00000000  00000000  00001106  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_pubtypes 00000038  00000000  00000000  000011a0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	19 c0       	rjmp	.+50     	; 0x36 <__bad_interrupt>
+   4:	18 c0       	rjmp	.+48     	; 0x36 <__bad_interrupt>
+   6:	17 c0       	rjmp	.+46     	; 0x36 <__bad_interrupt>
+   8:	16 c0       	rjmp	.+44     	; 0x36 <__bad_interrupt>
+   a:	15 c0       	rjmp	.+42     	; 0x36 <__bad_interrupt>
+   c:	14 c0       	rjmp	.+40     	; 0x36 <__bad_interrupt>
+   e:	13 c0       	rjmp	.+38     	; 0x36 <__bad_interrupt>
+  10:	12 c0       	rjmp	.+36     	; 0x36 <__bad_interrupt>
+  12:	11 c0       	rjmp	.+34     	; 0x36 <__bad_interrupt>
+  14:	10 c0       	rjmp	.+32     	; 0x36 <__bad_interrupt>
+  16:	0f c0       	rjmp	.+30     	; 0x36 <__bad_interrupt>
+  18:	0e c0       	rjmp	.+28     	; 0x36 <__bad_interrupt>
+  1a:	0d c0       	rjmp	.+26     	; 0x36 <__bad_interrupt>
+  1c:	0c c0       	rjmp	.+24     	; 0x36 <__bad_interrupt>
+  1e:	0b c0       	rjmp	.+22     	; 0x36 <__bad_interrupt>
+  20:	0a c0       	rjmp	.+20     	; 0x36 <__bad_interrupt>
+  22:	09 c0       	rjmp	.+18     	; 0x36 <__bad_interrupt>
+  24:	08 c0       	rjmp	.+16     	; 0x36 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+  32:	1f d0       	rcall	.+62     	; 0x72 <main>
+  34:	52 c0       	rjmp	.+164    	; 0xda <_exit>
+
+00000036 <__bad_interrupt>:
+  36:	e4 cf       	rjmp	.-56     	; 0x0 <__vectors>
+
+00000038 <initpwm>:
+
+#ifdef USEPWM
+void initpwm()
+{
+
+	TCCR1A|=(1<<COM1A1)|(1<<COM1B1)|(1<<WGM11);		 	//NON Inverted PWM
+  38:	8f b5       	in	r24, 0x2f	; 47
+  3a:	82 6a       	ori	r24, 0xA2	; 162
+  3c:	8f bd       	out	0x2f, r24	; 47
+	TCCR1B|=(1<<WGM13)|(1<<WGM12)|(1<<CS11)|(1<<CS10);	//PRESCALER=64 MODE 14(FAST PWM)
+  3e:	8e b5       	in	r24, 0x2e	; 46
+  40:	8b 61       	ori	r24, 0x1B	; 27
+  42:	8e bd       	out	0x2e, r24	; 46
+
+	ICR1=255;	//fPWM=50Hz (Period = 20ms Standard).
+  44:	8f ef       	ldi	r24, 0xFF	; 255
+  46:	90 e0       	ldi	r25, 0x00	; 0
+  48:	97 bd       	out	0x27, r25	; 39
+  4a:	86 bd       	out	0x26, r24	; 38
+
+}
+  4c:	08 95       	ret
+
+0000004e <usart_putch>:
+#endif
+
+#ifdef USEUSART
+void usart_putch(unsigned char send)
+{
+	while((UCSRA & (1 << UDRE))==0); // Do nothing until UDR is ready..
+  4e:	5d 9b       	sbis	0x0b, 5	; 11
+  50:	fe cf       	rjmp	.-4      	; 0x4e <usart_putch>
+	// for more data to be written to it
+	UDR = send; // Send the byte 
+  52:	8c b9       	out	0x0c, r24	; 12
+}
+  54:	08 95       	ret
+
+00000056 <usart_getch>:
+ 
+unsigned char usart_getch()
+{
+	while ((UCSRA & (1 << RXC)) == 0);
+  56:	5f 9b       	sbis	0x0b, 7	; 11
+  58:	fe cf       	rjmp	.-4      	; 0x56 <usart_getch>
+	// Do nothing until data have been received and is ready to be read from UDR
+	return(UDR); // return the byte
+  5a:	8c b1       	in	r24, 0x0c	; 12
+}
+  5c:	08 95       	ret
+
+0000005e <init_usart>:
+
+void init_usart()
+{
+	UCSRB |= (1 << RXEN) | (1 << TXEN);   
+  5e:	8a b1       	in	r24, 0x0a	; 10
+  60:	88 61       	ori	r24, 0x18	; 24
+  62:	8a b9       	out	0x0a, r24	; 10
+	// Turn on the transmission and reception circuitry
+	UCSRC |= (1 << URSEL) | (1<<USBS) | (1 << UCSZ0) | (1 << UCSZ1); 
+  64:	80 b5       	in	r24, 0x20	; 32
+  66:	8e 68       	ori	r24, 0x8E	; 142
+  68:	80 bd       	out	0x20, r24	; 32
+	// Use 8-bit character sizes
+	 
+	UBRRL = BAUD_PRESCALE; // Load lower 8-bits of the baud rate value..
+  6a:	83 e3       	ldi	r24, 0x33	; 51
+  6c:	89 b9       	out	0x09, r24	; 9
+	// into the low byte of the UBRR register
+	UBRRH = (BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value..
+  6e:	10 bc       	out	0x20, r1	; 32
+	// into the high byte of the UBRR register
+}
+  70:	08 95       	ret
+
+00000072 <main>:
+#endif
+
+int main()
+{
+  72:	0f 93       	push	r16
+  74:	1f 93       	push	r17
+	DDRC=0xff; //set port c as digital output port
+  76:	8f ef       	ldi	r24, 0xFF	; 255
+  78:	84 bb       	out	0x14, r24	; 20
+	DDRB=0xff; //also speed control pin as output port
+  7a:	87 bb       	out	0x17, r24	; 23
+	unsigned char ch,signal,tmpSpeed,direction=0x00;
+	unsigned int speed;
+
+	bot=stop;
+  7c:	15 ba       	out	0x15, r1	; 21
+	init_usart();
+  7e:	ef df       	rcall	.-34     	; 0x5e <init_usart>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+  80:	8f ef       	ldi	r24, 0xFF	; 255
+  82:	99 e6       	ldi	r25, 0x69	; 105
+  84:	a8 e1       	ldi	r26, 0x18	; 24
+  86:	81 50       	subi	r24, 0x01	; 1
+  88:	90 40       	sbci	r25, 0x00	; 0
+  8a:	a0 40       	sbci	r26, 0x00	; 0
+  8c:	e1 f7       	brne	.-8      	; 0x86 <main+0x14>
+  8e:	00 c0       	rjmp	.+0      	; 0x90 <main+0x1e>
+  90:	00 00       	nop
+	_delay_ms(1000);
+	initpwm();
+  92:	d2 df       	rcall	.-92     	; 0x38 <initpwm>
+  94:	8f ef       	ldi	r24, 0xFF	; 255
+  96:	99 e6       	ldi	r25, 0x69	; 105
+  98:	a8 e1       	ldi	r26, 0x18	; 24
+  9a:	81 50       	subi	r24, 0x01	; 1
+  9c:	90 40       	sbci	r25, 0x00	; 0
+  9e:	a0 40       	sbci	r26, 0x00	; 0
+  a0:	e1 f7       	brne	.-8      	; 0x9a <main+0x28>
+  a2:	00 c0       	rjmp	.+0      	; 0xa4 <main+0x32>
+  a4:	00 00       	nop
+		//xbee packet is xpected in following format
+		//#@[control signal][speed]@$
+		//where control signalis 8 bit
+		//and speed value is 8 bit
+		//total packet size is 6 bytes
+		ch=usart_getch();
+  a6:	d7 df       	rcall	.-82     	; 0x56 <usart_getch>
+
+		if(ch=='#')							//1st byte #
+  a8:	83 32       	cpi	r24, 0x23	; 35
+  aa:	e9 f7       	brne	.-6      	; 0xa6 <main+0x34>
+		{
+			ch=usart_getch();
+  ac:	d4 df       	rcall	.-88     	; 0x56 <usart_getch>
+			if(ch=='@')						//2nd byte @
+  ae:	80 34       	cpi	r24, 0x40	; 64
+  b0:	d1 f7       	brne	.-12     	; 0xa6 <main+0x34>
+			{
+				signal=usart_getch();		//3rd byte
+  b2:	d1 df       	rcall	.-94     	; 0x56 <usart_getch>
+  b4:	08 2f       	mov	r16, r24
+				tmpSpeed=usart_getch();		//4th byte
+  b6:	cf df       	rcall	.-98     	; 0x56 <usart_getch>
+  b8:	18 2f       	mov	r17, r24
+				ch=usart_getch();
+  ba:	cd df       	rcall	.-102    	; 0x56 <usart_getch>
+				if(ch=='@')					//5th byte @
+  bc:	80 34       	cpi	r24, 0x40	; 64
+  be:	99 f7       	brne	.-26     	; 0xa6 <main+0x34>
+				{
+					ch=usart_getch();
+  c0:	ca df       	rcall	.-108    	; 0x56 <usart_getch>
+					if(ch=='$')				//6th byte $
+  c2:	84 32       	cpi	r24, 0x24	; 36
+  c4:	81 f7       	brne	.-32     	; 0xa6 <main+0x34>
+					{
+						//packet is valid
+						//apply changes
+						
+						direction=signal & 0x0f;
+  c6:	0f 70       	andi	r16, 0x0F	; 15
+						direction=direction << 1;
+  c8:	00 0f       	add	r16, r16
+						bot=direction;
+  ca:	05 bb       	out	0x15, r16	; 21
+						
+						//set the speed values
+						speed=tmpSpeed;
+  cc:	81 2f       	mov	r24, r17
+  ce:	90 e0       	ldi	r25, 0x00	; 0
+						//keeping speed same for both the motors
+						m1speed=speed;
+  d0:	9b bd       	out	0x2b, r25	; 43
+  d2:	8a bd       	out	0x2a, r24	; 42
+						m2speed=speed;
+  d4:	99 bd       	out	0x29, r25	; 41
+  d6:	88 bd       	out	0x28, r24	; 40
+  d8:	e6 cf       	rjmp	.-52     	; 0xa6 <main+0x34>
+
+000000da <_exit>:
+  da:	f8 94       	cli
+
+000000dc <__stop_program>:
+  dc:	ff cf       	rjmp	.-2      	; 0xdc <__stop_program>

@@ -1,0 +1,320 @@
+ (routes 
+  (resolution mm 10000)
+  (parser
+  )
+  (parser
+  )
+  (structure_out
+   (layer BOTTOM (type signal)
+   )
+  )
+  (library_out
+  (padstack ViaDefault
+   (shape (circ BOTTOM 10160 0 0))
+  )
+  )
+  (network_out
+   (Net EN1 
+   (rule
+   )
+   (wire (path BOTTOM 8000  589958 343479 589958 637000 221000 637000
+     221000 592049 207117 592049)
+    (connect (terminal smd IC2-15) (terminal smd IC3-1))
+   )
+   )
+   (Net EN2 
+   (rule
+   )
+   )
+   (Net GND 
+   (rule
+   )
+   (wire (path BOTTOM 8000  651617 426949 677000 426949 677000 589000
+     427000 589000)
+    (connect (terminal smd XBEE-2) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  427000 589000 427000 584000 437558 584000)
+    (connect (terminal wire) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  621000 111253 621000 426949 651617 426949)
+    (connect (terminal wire) (terminal smd XBEE-2))
+   )
+   (wire (path BOTTOM 8000  332429 109230 351000 109230 351000 79000
+     621000 79000 621000 111253)
+    (connect (terminal smd C1--) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  102713 109230 332429 109230)
+    (connect (terminal wire) (terminal smd C1--))
+   )
+   (wire (path BOTTOM 8000  437558 584000 437558 584000 437558 393071
+     437558 393071)
+    (connect (terminal wire) (terminal smd ISP-2))
+   )
+   (wire (path BOTTOM 8000  505884 111253 621000 111253)
+    (connect (terminal smd C4-2) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  455084 112462 415000 112462 415000 190807)
+    (connect (terminal smd C3-1) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  415000 190807 383067 190807)
+    (connect (terminal wire) (terminal smd C2--))
+   )
+   (wire (path BOTTOM 8000  251000 515849 251000 609000 427000 609000
+     427000 589000)
+    (connect (terminal wire) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  251000 515849 250000 515849)
+    (connect (terminal wire) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  415000 190807 437558 190807 437558 267279)
+    (connect (terminal wire) (terminal smd IC2-8))
+   )
+   (wire (path BOTTOM 8000  505884 111253 505884 112462 455084 112462)
+    (connect (terminal smd C4-2) (terminal smd C3-1))
+   )
+   (wire (path BOTTOM 8000  102593 151258 102593 179000 230935 179000
+     230935 198454)
+    (connect (terminal smd IC1-2) (terminal smd PWRLED-K))
+   )
+   (wire (path BOTTOM 8000  437558 267279 437558 291000 412158 291000
+     412158 343479)
+    (connect (terminal smd IC2-8) (terminal smd IC2-22))
+   )
+   (wire (path BOTTOM 8000  250000 505000 250000 490449 283317 490449)
+    (connect (terminal wire) (terminal smd IC3-12))
+   )
+   (wire (path BOTTOM 8000  102713 109230 102713 124000 102593 124000
+     102593 151258)
+    (connect (terminal wire) (terminal smd IC1-2))
+   )
+   (wire (path BOTTOM 8000  283317 515849 283317 515849 251000 515849)
+    (connect (terminal smd IC3-13) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  102713 73716 102713 109230)
+    (connect (terminal smd PWRSPLY-1) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  207117 490449 183000 490449 183000 515849
+     207117 515849)
+    (connect (terminal smd IC3-5) (terminal smd IC3-4))
+   )
+   (wire (path BOTTOM 8000  250000 505000 231000 505000 231000 490449
+     207117 490449)
+    (connect (terminal wire) (terminal smd IC3-5))
+   )
+   (wire (path BOTTOM 8000  250000 505000 250000 515849)
+    (connect (terminal wire) (terminal wire))
+   )
+   )
+   (Net M1IN1 
+   (rule
+   )
+   (wire (path BOTTOM 8000  361358 343479 361358 305000 179461 305000
+     179461 383000 104000 383000 104000 566649 207117 566649)
+    (connect (terminal smd IC2-24) (terminal smd IC3-2))
+   )
+   )
+   (Net M1IN2 
+   (rule
+   )
+   (wire (path BOTTOM 8000  335958 343479 335958 319000 231000 319000
+     231000 439649 207117 439649)
+    (connect (terminal smd IC2-25) (terminal smd IC3-7))
+   )
+   )
+   (Net M2IN1 
+   (rule
+   )
+   (wire (path BOTTOM 8000  283317 566649 360000 566649 360000 382000
+     310558 382000 310558 343479)
+    (connect (terminal smd IC3-15) (terminal smd IC2-26))
+   )
+   )
+   (Net M2IN2 
+   (rule
+   )
+   (wire (path BOTTOM 8000  283317 439649 260000 439649 260000 367000
+     285158 367000 285158 343479)
+    (connect (terminal smd IC3-10) (terminal smd IC2-27))
+   )
+   )
+   (Net MISO 
+   (rule
+   )
+   (wire (path BOTTOM 8000  513758 393071 513758 343479)
+    (connect (terminal smd ISP-5) (terminal smd IC2-18))
+   )
+   )
+   (Net MOSI 
+   (rule
+   )
+   (wire (path BOTTOM 8000  539158 393071 539158 343479)
+    (connect (terminal smd ISP-6) (terminal smd IC2-17))
+   )
+   )
+   (Net MPWR 
+   (rule
+   )
+   (wire (path BOTTOM 8000  207117 414249 152000 414249 152000 238000
+     77193 238000 77193 151258)
+    (connect (terminal smd IC3-8) (terminal smd IC1-1))
+   )
+   (wire (path BOTTOM 8000  332429 73670 286000 73670 286000 44000
+     77313 44000 77313 73716)
+    (connect (terminal smd C1-+) (terminal smd PWRSPLY-2))
+   )
+   (wire (path BOTTOM 8000  77193 151258 77313 151258 77313 124000)
+    (connect (terminal smd IC1-1) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  77000 124000 77000 99000 77313 99000
+     77313 73716)
+    (connect (terminal wire) (terminal smd PWRSPLY-2))
+   )
+   (wire (path BOTTOM 8000  77000 124000 77313 124000)
+    (connect (terminal wire) (terminal wire))
+   )
+   )
+   (Net N$2 
+   (rule
+   )
+   (wire (path BOTTOM 8000  462958 267279 462958 214000 455085 214000
+     455085 191079)
+    (connect (terminal smd IC2-9) (terminal smd Q1-2))
+   )
+   (wire (path BOTTOM 8000  455085 191079 455085 146000 429000 146000
+     429000 137862 455084 137862)
+    (connect (terminal smd Q1-2) (terminal smd C3-2))
+   )
+   )
+   (Net N$3 
+   (rule
+   )
+   (wire (path BOTTOM 8000  271057 223168 205535 223168 205535 198454)
+    (connect (terminal smd R1-2) (terminal smd PWRLED-A))
+   )
+   )
+   (Net N$4 
+   (rule
+   )
+   (wire (path BOTTOM 8000  488358 267279 488358 227000 505885 227000
+     505885 191079)
+    (connect (terminal smd IC2-10) (terminal smd Q1-1))
+   )
+   (wire (path BOTTOM 8000  505885 191079 505885 156000 532000 156000
+     532000 136653 505884 136653)
+    (connect (terminal smd Q1-1) (terminal smd C4-1))
+   )
+   )
+   (Net N$9 
+   (rule
+   )
+   (wire (path BOTTOM 8000  143617 515849 169000 515849 169000 541249
+     207117 541249)
+    (connect (terminal smd M1-2) (terminal smd IC3-3))
+   )
+   )
+   (Net N$10 
+   (rule
+   )
+   (wire (path BOTTOM 8000  207117 465049 165000 465049 165000 490449
+     143617 490449)
+    (connect (terminal smd IC3-6) (terminal smd M1-1))
+   )
+   )
+   (Net N$11 
+   (rule
+   )
+   (wire (path BOTTOM 8000  283317 541249 307000 541249 307000 515849
+     334117 515849)
+    (connect (terminal smd IC3-14) (terminal smd M2-1))
+   )
+   )
+   (Net N$12 
+   (rule
+   )
+   (wire (path BOTTOM 8000  283317 465049 308000 465049 308000 490449
+     334117 490449)
+    (connect (terminal smd IC3-11) (terminal smd M2-2))
+   )
+   )
+   (Net RST 
+   (rule
+   )
+   (wire (path BOTTOM 8000  259758 241000 288000 241000 288000 223919
+     308125 223919)
+    (connect (terminal wire) (terminal smd R2-2))
+   )
+   (wire (path BOTTOM 8000  259758 267279 259758 241000)
+    (connect (terminal smd IC2-1) (terminal wire))
+   )
+   )
+   (Net RX 
+   (rule
+   )
+   (wire (path BOTTOM 8000  651617 401549 677000 401549 677000 30000
+     44000 30000 44000 207000 188000 207000 188000 291000
+     285158 291000 285158 267279)
+    (connect (terminal smd XBEE-3) (terminal smd IC2-2))
+   )
+   )
+   (Net SCK 
+   (rule
+   )
+   (wire (path BOTTOM 8000  488358 393071 488358 343479)
+    (connect (terminal smd ISP-4) (terminal smd IC2-19))
+   )
+   )
+   (Net TX 
+   (rule
+   )
+   (wire (path BOTTOM 8000  651617 376149 651617 65000 365000 65000
+     365000 128000 346000 128000 346000 241000 310558 241000
+     310558 267279)
+    (connect (terminal smd XBEE-4) (terminal smd IC2-3))
+   )
+   )
+   (Net VCC 
+   (rule
+   )
+   (wire (path BOTTOM 8000  362747 156000 380000 156000 380000 93000
+     607000 93000 607000 316000)
+    (connect (terminal wire) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  412158 393071 412158 592049 283317 592049)
+    (connect (terminal smd ISP-1) (terminal smd IC3-16))
+   )
+   (wire (path BOTTOM 8000  412158 267279 412158 222000 362747 222000
+     362747 190807)
+    (connect (terminal smd IC2-7) (terminal smd C2-+))
+   )
+   (wire (path BOTTOM 8000  412158 393071 412158 367000 437558 367000
+     437558 343479)
+    (connect (terminal smd ISP-1) (terminal smd IC2-21))
+   )
+   (wire (path BOTTOM 8000  271057 146968 226000 146968 226000 124000
+     127993 124000 127993 151258)
+    (connect (terminal smd R1-1) (terminal smd IC1-3))
+   )
+   (wire (path BOTTOM 8000  308125 147719 362747 147719 362747 156000)
+    (connect (terminal smd R2-1) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  271057 146968 271057 147719 308125 147719)
+    (connect (terminal smd R1-1) (terminal smd R2-1))
+   )
+   (wire (path BOTTOM 8000  362747 190807 362747 156000)
+    (connect (terminal smd C2-+) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  651617 452349 607000 452349 607000 316000)
+    (connect (terminal smd XBEE-1) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  462958 316000 437558 316000 437558 343479)
+    (connect (terminal wire) (terminal smd IC2-21))
+   )
+   (wire (path BOTTOM 8000  607000 316000 462958 316000)
+    (connect (terminal wire) (terminal wire))
+   )
+   (wire (path BOTTOM 8000  462958 316000 462958 343479)
+    (connect (terminal wire) (terminal smd IC2-20))
+   )
+   )
+  )
+ )
